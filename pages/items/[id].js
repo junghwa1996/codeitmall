@@ -16,7 +16,6 @@ export default function Product() {
   async function getProduct(targetId) {
     const res = await axios.get(`/products/${targetId}`);
     const nextProduct = res.data;
-    console.log(nextProduct);
     setProduct(nextProduct);
   }
 
