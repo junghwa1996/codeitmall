@@ -18,6 +18,11 @@
   border-radius: 10px;
 }
 
+:global(.light) .sizeReview {
+  background: #fff;
+  border-color: #dcdcdc;
+}
+
 .date {
   color: #b5b5b5;
   font-size: 15px;
@@ -39,4 +44,9 @@
   text-align: center;
   background: #121212;
   border-radius: 9999px;
+}
+
+:global(.light) .fit {
+  background: #505050;
+  color: #f9f9f9;
 }

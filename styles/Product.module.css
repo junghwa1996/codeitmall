@@ -50,6 +50,11 @@
   border-radius: 10px;
 }
 
+:global(.light) .info {
+  background-color: #fff;
+  border-color: #dcdcdc;
+}
+
 .infoTable {
   width: 100%;
   margin: 20px 0;
@@ -87,6 +92,10 @@
   background-color: #1f1f1f;
   border: 1px solid #252525;
   border-radius: 10px;
+}
+
+:global(.light) .sizeForm {
+  background-color: #fff;
 }
 
 .label {
