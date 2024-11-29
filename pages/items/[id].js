@@ -1,13 +1,14 @@
 import { useState } from 'react';
+import Image from 'next/image';
 import axios from '@/lib/axios';
 import styles from '@/styles/Product.module.css';
 import SizeReviewList from '@/components/SizeReviewList';
 import StarRating from '@/components/StarRating';
-import Image from 'next/image';
 import Spinner from '@/components/Spinner';
 import Dropdown from '@/components/Dropdown';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
+import sizeReviewLabels from '@/lib/sizeReviewLabels';
 
 export async function getServerSideProps(context) {
   const productId = context.params['id'];
@@ -41,28 +42,28 @@ export default function Product({ product, sizeReviews: initialSizeReviews }) {
     fit: 'good',
   });
 
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
     const sizeReview = {
       ...formValue,
       productId: product.id,
     };
-    const response = await axios.post('/size_reviews/', sizeReview);
-    const newSizeReview = response.data;
-    setSizeReviews((prevSizereviews) => [newSizeReview, ...prevSizereviews]);
-  };
+    const res = await axios.post('/size_reviews/', sizeReview);
+    const newSizeReview = res.data;
+    setSizeReviews((prevSizeReviews) => [newSizeReview, ...prevSizeReviews]);
+  }
 
-  const handleInputChange = async (e) => {
+  function handleInputChange(e) {
     const { name, value } = e.target;
     handleChange(name, value);
-  };
+  }
 
-  const handleChange = async (name, value) => {
+  function handleChange(name, value) {
     setFormValue({
       ...formValue,
       [name]: value,
     });
-  };
+  }
 
   if (!product)
     return (
@@ -153,8 +154,8 @@ export default function Product({ product, sizeReviews: initialSizeReviews }) {
                   value={formValue.sex}
                   onChange={handleChange}
                   options={[
-                    { label: '남성', value: 'male' },
-                    { label: '여성', value: 'female' },
+                    { label: sizeReviewLabels.sex['male'], value: 'male' },
+                    { label: sizeReviewLabels.sex['female'], value: 'female' },
                   ]}
                 />
               </label>
@@ -177,9 +178,9 @@ export default function Product({ product, sizeReviews: initialSizeReviews }) {
                   name='fit'
                   value={formValue.fit}
                   options={[
-                    { label: '작음', value: 'small' },
-                    { label: '적당함', value: 'good' },
-                    { label: '큼', value: 'big' },
+                    { label: sizeReviewLabels.fit['small'], value: 'small' },
+                    { label: sizeReviewLabels.fit['good'], value: 'good' },
+                    { label: sizeReviewLabels.fit['big'], value: 'big' },
                   ]}
                   onChange={handleChange}
                 />
