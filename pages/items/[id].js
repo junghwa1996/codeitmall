@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import axios from '@/lib/axios';
 import styles from '@/styles/Product.module.css';
 import SizeReviewList from '@/components/SizeReviewList';
@@ -39,12 +40,8 @@ export default function Product() {
         <span className={styles.englishName}>{product.englishName}</span>
       </h1>
       <div className={styles.content}>
-        <div>
-          <img
-            className={styles.image}
-            src={product.imgUrl}
-            alt={product.name}
-          />
+        <div className={styles.image}>
+          <Image fill src={product.imgUrl} alt={product.name} />
         </div>
         <div>
           <section className={styles.section}>
@@ -65,9 +62,7 @@ export default function Product() {
                   <tr>
                     <th>가격</th>
                     <td>
-                      <span className={styles.salePrice}>
-                        {product.price.toLocaleString()}원
-                      </span>{' '}
+                      <span className={styles.salePrice}>{product.price.toLocaleString()}원</span>{' '}
                       {product.salePrice.toLocaleString()}원
                     </td>
                   </tr>
@@ -84,9 +79,7 @@ export default function Product() {
                   </tr>
                   <tr>
                     <th>좋아요</th>
-                    <td className={styles.like}>
-                      ♥{product.likeCount.toLocaleString()}
-                    </td>
+                    <td className={styles.like}>♥{product.likeCount.toLocaleString()}</td>
                   </tr>
                 </tbody>
               </table>
