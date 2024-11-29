@@ -4,6 +4,7 @@ import axios from '@/lib/axios';
 import styles from '@/styles/Product.module.css';
 import SizeReviewList from '@/components/SizeReviewList';
 import StarRating from '@/components/StarRating';
+
 import Spinner from '@/components/Spinner';
 import Dropdown from '@/components/Dropdown';
 import Input from '@/components/Input';
