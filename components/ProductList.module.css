@@ -18,13 +18,15 @@
 }
 
 :global(.light) .product {
-  background-color: #fff;
   color: #121212;
-  border: 1px solid #eee;
+  background: #f9f9f9;
+  border: 1px solid #e1e1e1;
+  border-radius: 0px 0px 10px 10px;
 }
 
 .image {
   position: relative;
+  z-index: 0;
   width: 100%;
   aspect-ratio: 1/1;
 }
@@ -43,7 +45,7 @@
 }
 
 :global(.light) .divider {
-  border-color: #dcdcdc;
+  border-color: #ededed;
 }
 
 .name {
@@ -61,6 +63,10 @@
   margin-right: 5px;
   color: #505050;
   text-decoration: line-through;
+}
+
+:global(.light) .originalPrice {
+  color: #b5b5b5;
 }
 
 .starRating {

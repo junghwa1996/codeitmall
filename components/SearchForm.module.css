@@ -14,6 +14,12 @@
   outline: none;
 }
 
+:global(.light) .searchInput {
+  color: #1f1f1f;
+  background-color: #f9f9f9;
+  border: 1px solid #cfcfcf;
+}
+
 .searchButton {
   padding: 16px 40px;
   font-weight: 700;
@@ -23,13 +29,7 @@
   border-radius: 10px;
 }
 
-:global(.light) .searchInput {
-  color: #505050;
-  background-color: #fff;
-  border-color: #dcdcdc;
-}
-
 :global(.light) .searchButton {
-  color: #fff;
+  color: #f9f9f9;
   background-color: #505050;
 }

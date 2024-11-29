@@ -12,7 +12,7 @@ export default function Setting() {
         <h2 className={styles.sectionTitle}>테마 설정</h2>
         <Dropdown
           className={styles.input}
-          name='theme'
+          name="theme"
           value={theme}
           onChange={(name, value) => setTheme(value)}
           options={[
